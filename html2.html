@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div Hover Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        #hiddenDiv {
+            display: block;
+            background-color: blue;
+            color: white;
+            /* padding: 10px; */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+            height: 0;
+            overflow: hidden;
+            transition: height 0.3s ease; /* Adding a transition for the opacity */
+        }
+
+        #hoverButton:hover + #hiddenDiv {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="hoverButton">Hover Me</button>
+        <div id="hiddenDiv">This is a hidden div.</div>
+    </div>
+</body>
+</html>
