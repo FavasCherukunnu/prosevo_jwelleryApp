@@ -1,28 +1,29 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
-.carousel {
+.carousel1 {
     overflow: hidden;
-    width: 700px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.inner {
+.carousel1 .inner {
     white-space: nowrap;
     transition: transform 0.3s;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.carousel-item {
+.carousel1 .carousel-item1 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     height: 490px;
     background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
-.carousel-item-text {
+.carousel1 .carousel-item-text {
     font-size: 1.15rem;
     margin: 40px 0 40px 0;
     padding: 0 20px 0 20px;
@@ -30,46 +31,46 @@
     color: #617d98;
 }
 
-.carousel-img {
+.carousel1 .carousel-img {
     width: 250px;
     padding: 0 20px 0 20px;
 }
 
 /* final stage */
 
-.carousel-buttons {
+.carousel1 .carousel-buttons {
     display: flex;
     justify-content: space-evenly;
 }
 
-.button-arrow {
+.carousel1 .button-arrow {
     background: none;
     border: none;
     cursor: pointer;
     margin-top: 20px;
 }
 
-.indicators {
+.carousel1 .indicators {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 20px;
 }
 
-.indicator-buttons {
+.carousel1 .indicator-buttons {
     border: none;
     cursor: pointer;
 }
 
-.indicators>button {
+.carousel1 .indicators>button {
     margin: 5px;
     background: none;
 }
 
-.indicator-symbol {
+.carousel1 .indicator-symbol {
     color: #26343f;
 }
 
-.indicator-symbol-active {
+.carousel1 .indicator-symbol-active {
     color: #ffffff;
 }
