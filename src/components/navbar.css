@@ -1,0 +1,11 @@
+.topNavBar img{
+    height: 40px;
+    border-radius: 50px;
+}
+
+.topNavBar .brandName{
+    font-size: 30px;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+}
