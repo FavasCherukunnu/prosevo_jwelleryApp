@@ -35,15 +35,35 @@ export const Carousel = () => {
 
     setActiveIndex(newIndex);
   };
+
+  const incrimentIndex= ()=>{
+
+    if(activeIndex>=items.length-1){
+      setActiveIndex(0);
+    }else{
+      setActiveIndex(activeIndex+1);
+    }
+
+  }
+
+  const dicrementIndex= ()=>{
+
+    if(activeIndex<=0){
+      setActiveIndex(items.length-1);
+    }else{
+      setActiveIndex(activeIndex-1);
+    }
+
+  }
+
   return (
     <div className="carousel1">
       <div
         className="inner"
-        style={{ transform: `translate(-${activeIndex * 100}%)`
-     }}
+        
       >
-        {items.map((item) => {
-          return <CarouselItem item={item} width={"100%"} />;
+        {items.map((item,index) => {
+          return <CarouselItem key={index} isSelected={index===activeIndex} item={item} width={"100%"} />;
         })}
       </div>
 
@@ -51,7 +71,7 @@ export const Carousel = () => {
         <button
           className="button-arrow"
           onClick={() => {
-            updateIndex(activeIndex - 1);
+            dicrementIndex()
           }}
         >
           <span class="material-symbols-outlined">arrow_back_ios</span>{" "}
@@ -64,6 +84,7 @@ export const Carousel = () => {
                 onClick={() => {
                   updateIndex(index);
                 }}
+                key={index}
               >
                 <span
                   className={`material-symbols-outlined`}
@@ -77,7 +98,7 @@ export const Carousel = () => {
         <button
           className="button-arrow"
           onClick={() => {
-            updateIndex(activeIndex + 1);
+            incrimentIndex();
           }}
         >
           <span class="material-symbols-outlined">arrow_forward_ios</span>

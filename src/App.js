@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="landingPage">
       <TopNavBar />
-      <div style={{marginTop:'60px'}}>
+      <div style={{marginTop:'60px',height:'70vh'}}>
         <Carousel />
       </div>
     </div>
