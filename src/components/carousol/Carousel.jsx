@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { CarouselItem } from "./CarouselItem";
 import './newsCarousol.css'
 
+
+//refer https://github.com/harakisgeorge/carouselreact
 export const Carousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const items = [
@@ -64,13 +66,9 @@ export const Carousel = () => {
                 }}
               >
                 <span
-                  className={`material-symbols-outlined ${
-                    index === activeIndex
-                      ? "indicator-symbol-active"
-                      : "indicator-symbol"
-                  }`}
+                  className={`material-symbols-outlined`}
                 >
-                  radio_button_checked
+                  {index === activeIndex?'radio_button_checked':'radio_button_unchecked'}
                 </span>
               </button>
             );
