@@ -2,10 +2,30 @@
     height: 40px;
     border-radius: 50px;
 }
+.topNavBar .navBarMain{
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 19px 20px -26px;
+    background-color: #fffffc;
+}
 
 .topNavBar .brandName{
     font-size: 30px;
     font-weight: 600;
     padding: 0;
     margin: 0;
+}
+.topNavBar .loginCard{
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.topNavBar .loginCard span{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.topNavBar .loginCard .innerDiv{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
 }
