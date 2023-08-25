@@ -13,7 +13,7 @@ import { GoldenButton } from './buttons/goldenButton';
 export function TopNavBar() {
   return (
     <div className='topNavBar'>
-      <Navbar className="navBarMain" >
+      <Navbar fixed='top' className="navBarMain" >
         <Container>
           {/* <Navbar.Brand href="#home">
             <GiGoldNuggets size={50} />
