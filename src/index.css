@@ -18,5 +18,7 @@ body {
 :root{
   --goldColorShadowColor:rgb(191 191 131 / 20%);
   --goldColorShadowColorDeep:rgba(191, 191, 131, 0.366);
+  --goldenButtonColor:#f7fbc2;
+  --goldenDarkColor:#3e3f2a;
 
 }
