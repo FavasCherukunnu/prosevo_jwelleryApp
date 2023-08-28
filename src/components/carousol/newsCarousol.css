@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+ @import url("https://fonts.googleapis.com/css?family=Roboto");
 
 .carousel1 {
     position: relative;
@@ -9,6 +9,12 @@
     flex-direction: column;
     justify-content: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.carousel1 .heading{
+    color: var(--goldenDarkColor) ;
+    margin: 10px 0px 20px 10px;
+    font-weight: 600;
 }
 
 .carousel1 .inner {

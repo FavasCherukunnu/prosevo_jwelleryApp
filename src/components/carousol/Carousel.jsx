@@ -4,7 +4,8 @@ import './newsCarousol.css'
 import { BiSolidRightArrow,BiSolidLeftArrow } from 'react-icons/bi';
 
 //refer https://github.com/harakisgeorge/carouselreact
-export const Carousel = () => {
+export const Carousel = (props) => {
+  const {title} = props;
   const [activeIndex, setActiveIndex] = useState(0);
   const items = [
     {
@@ -58,6 +59,7 @@ export const Carousel = () => {
 
   return (
     <div className="carousel1">
+      {title?<h3 className="heading">{title}</h3>:null}
       <div
         className="inner"
 
