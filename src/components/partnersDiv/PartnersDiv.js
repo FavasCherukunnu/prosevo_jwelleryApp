@@ -67,9 +67,34 @@ const SliderControl = ({ type, title, handleClick }) => {
 };
 
 // Slider Component
-export const Slider = ({ slides, heading, title }) => {
+export const Slider = ({ heading, title }) => {
     const [current, setCurrent] = useState(0);
-
+    var slides =  [
+        {
+          index: 0,
+          headline: 'New Fashion Apparel',
+          button: 'Shop now',
+          src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/fashion.jpg'
+        },
+        {
+          index: 1,
+          headline: 'In The Wilderness',
+          button: 'Book travel',
+          src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/forest.jpg'
+        },
+        {
+          index: 2,
+          headline: 'For Your Current Mood',
+          button: 'Listen',
+          src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/guitar.jpg'
+        },
+        {
+          index: 3,
+          headline: 'Focus On The Writing',
+          button: 'Get Focused',
+          src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/typewriter.jpg'
+        }
+      ]
     const handlePreviousClick = () => {
         const previous = current - 1;
         setCurrent(previous < 0 ? slides.length - 1 : previous);
@@ -90,11 +115,11 @@ export const Slider = ({ slides, heading, title }) => {
 
     return (
         <div className='partnersDiv'>
-            {title ? <h3 className="heading">{title}</h3> : null}
+            <h3 className="heading">Our Partners</h3>
             <div className='partnerInnerDiv'>
                 <div className='slider'>
                     <ul className="slider__wrapper" style={wrapperTransform}>
-                        <h3 id={`slider-heading__${heading.replace(/\s+/g, '-').toLowerCase()}`} className="visuallyhidden">{heading}</h3>
+                        {/* <h3 id={`slider-heading__${heading.replace(/\s+/g, '-').toLowerCase()}`} className="visuallyhidden">{heading}</h3> */}
 
                         {slides.map((slide) => (
                             <Slide

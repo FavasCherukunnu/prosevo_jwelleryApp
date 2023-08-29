@@ -1,32 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CarouselItem } from "./CarouselItem";
 import './newsCarousol.css'
-import { BiSolidRightArrow,BiSolidLeftArrow } from 'react-icons/bi';
+import { BiSolidRightArrow, BiSolidLeftArrow } from 'react-icons/bi';
+import axios from "axios";
 
 //refer https://github.com/harakisgeorge/carouselreact
 export const Carousel = (props) => {
-  const {title} = props;
   const [activeIndex, setActiveIndex] = useState(0);
-  const items = [
-    {
-      title: "Baseball",
-      description:
-        "Baseball is a bat-and-ball sport played between two teams of nine players each, taking turns batting and fielding. The game occurs over the course of several plays, with each play generally beginning when a player on the fielding team, called the pitcher.",
-      img: 'https://asia.omsystem.com/content/000107506.jpg',
-    },
-    {
-      title: "Walking",
-      description:
-        "Walking (also known as ambulation) is one of the main gaits of terrestrial locomotion among legged animals. Walking is typically slower than running and other gaits. ",
-      img: 'https://img.photographyblog.com/reviews/kodak_pixpro_fz201/photos/kodak_pixpro_fz201_01.jpg',
-    },
-    {
-      title: "Weights",
-      description:
-        "Weightlifting generally refers to activities in which people lift weights, often in the form of dumbbells or barbells. People lift various kinds of weights for a variety of different reasons.",
-      img: 'https://nikonrumors.com/wp-content/uploads/2014/03/Nikon-1-V3-sample-photo.jpg',
-    },
-  ];
+  const [items, setItems] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(
+    () => {
+
+      const loadNew = async () => {
+
+        try {
+          const res = await axios.get('https://newsdata.io/api/1/news?apikey=pub_273555d0d6f13e01db9dfcb835a48541d1104&q=gold%20news&language=en&category=business');
+          let item = res.data.results;
+          item = item.filter(
+            item=> item.description!==null
+            )
+            // setItems(res.data.results)
+            console.log(item);
+            setItems(item)
+          setIsLoaded(true);
+        }catch(err){
+          console.log(err);
+        }
+
+      }
+
+      loadNew();
+
+    }
+    , []
+  )
+
+
   const updateIndex = (newIndex) => {
     if (newIndex < 0) {
       newIndex = 0;
@@ -59,61 +70,59 @@ export const Carousel = (props) => {
 
   return (
     <div className="carousel1">
-      {title?<h3 className="heading">{title}</h3>:null}
-      <div
-        className="inner"
+      <div className="carousel1Inner">
+        <h3 className="heading">Trending News</h3>
+        <div
+          className="inner"
 
-      >
-        {items.map((item, index) => {
-          return <CarouselItem key={index} isSelected={index === activeIndex} item={item} width={"100%"} />;
-        })}
-      </div>
-
-      <div className="carousel-buttons">
-
-        <div className="indicators">
+        >
           {items.map((item, index) => {
-            return (
-              <button
-                className="indicator-buttons"
-                onClick={() => {
-                  updateIndex(index);
-                }}
-                key={index}
-              >
-                {/* <span
-                  className={`material-symbols-outlined`}
-                >
-                  {index === activeIndex ? 'radio_button_checked' : 'radio_button_unchecked'}
-                </span> */}
-                <div className="indicator-selected" style={{
-                  backgroundColor: index===activeIndex?'var(--goldenButtonColor)':'white'
-
-                  }}/>
-
-              </button>
-            );
+            return <CarouselItem key={index} isSelected={index === activeIndex} item={item} width={"100%"} />;
           })}
         </div>
-        <div className="button-arrow-div">
-          <button
-            className="button-arrow"
-            onClick={() => {
-              incrimentIndex()
-            }}
-          >
-            <BiSolidRightArrow/>
-            {/* <span class="material-symbols-outlined">arrow_back_ios</span>{" "} */}
-          </button>
-          <button
-            className="button-arrow"
-            onClick={() => {
-              dicrementIndex();
-            }}
-          >
-            <BiSolidLeftArrow/>
-          </button>
-            
+
+        <div className="carousel-buttons">
+
+          <div className="indicators">
+            {items.map((item, index) => {
+              return (
+                <button
+                  className="indicator-buttons"
+                  onClick={() => {
+                    updateIndex(index);
+                  }}
+                  key={index}
+                >
+
+                  <div className="indicator-selected" style={{
+                    backgroundColor: index === activeIndex ? 'var(--goldenButtonColor)' : 'white'
+
+                  }} />
+
+                </button>
+              );
+            })}
+          </div>
+          <div className="button-arrow-div">
+            <button
+              className="button-arrow"
+              onClick={() => {
+                incrimentIndex()
+              }}
+            >
+              <BiSolidRightArrow />
+              {/* <span class="material-symbols-outlined">arrow_back_ios</span>{" "} */}
+            </button>
+            <button
+              className="button-arrow"
+              onClick={() => {
+                dicrementIndex();
+              }}
+            >
+              <BiSolidLeftArrow />
+            </button>
+
+          </div>
         </div>
       </div>
     </div>
