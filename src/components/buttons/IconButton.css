@@ -1,39 +1,6 @@
-/* ButtonWithHover.css */
-.button-container {
-    position: relative;
-    display: inline-block;
-}
 
-.button-container .hover-button {
-    padding: 10px 20px;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
 
-.button-container .hover-content {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(100%);
-    /* Initially hidden below the viewport */
-    transition: transform 0.3s ease-in-out;
-    /* Smooth transition */
-
-}
-
-.hover-content.active {
-    transform: translateY(0%);
-}
-
-.button-container .IconButton1 {
+.IconButton1 {
     text-align: center;
     border: 1px solid #e6e6e6;
     width: 40px;
@@ -43,26 +10,9 @@
     line-height: 1;
 }
 
-.button-container .IconButton1:hover {
+.IconButton1:hover {
 
     border: 1px solid #a0924940;
     color: #4f440599;
     box-shadow: 0px 0px 11px var(--goldColorShadowColor);
-}
-
-.button-container .HideContent {
-    padding: 10px;
-    background-color: white;
-}
-
-.button-container .hiddenDiv {
-    overflow: hidden;
-    border-radius: 12px;
-    display: block;
-    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
-    box-shadow: var(--goldColorShadowColor) 0px 7px 29px 0px;
-    position: absolute;
-    top: 105%;
-    /* z-index: 1; */
-    transition: opacity 0.2s ease-in-out;
 }

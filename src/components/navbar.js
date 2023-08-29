@@ -10,6 +10,7 @@ import { CiUser } from 'react-icons/ci';
 import { IconsButton } from './buttons/IconsButton';
 import { Link } from 'react-router-dom';
 import { GoldenButton } from './buttons/goldenButton';
+import { HoverButton } from './buttons/hoverButton';
 export function TopNavBar() {
   return (
     <div className='topNavBar'>
@@ -19,9 +20,13 @@ export function TopNavBar() {
             <GiGoldNuggets size={50} />
           </Navbar.Brand> */}
           <Nav className="ms-auto">
-            <GoldRateComponent />
+            <HoverButton button={<GoldRateComponent />}>
+                <div>
+                  Gold Rate Displays here
+                </div>
+            </HoverButton>
             <div style={{ width: '10px' }}></div>
-            <IconsButton icon={<CiUser size={20} />}>
+            <HoverButton button={<IconsButton icon={<CiUser size={20} />}/>}>
               <div className='loginCard'>
                 <span>You are not loggedin</span>
                 <div className='innerDiv'>
@@ -29,7 +34,7 @@ export function TopNavBar() {
                   <GoldenButton>SignUp</GoldenButton>
                 </div>
               </div>
-            </IconsButton>
+            </HoverButton>
           </Nav>
         </Container>
       </Navbar>
