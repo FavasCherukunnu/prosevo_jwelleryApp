@@ -40,7 +40,7 @@ function App() {
       <div style={{marginTop:'60px',height:'70vh'}}>
         <Carousel title='Trending News'/>
       </div>
-      <Slider  heading="Example Slider" slides={slideData}/>
+      <Slider  heading="Example Slider" slides={slideData} title='Our Partners'/>
     </div>
   );
 }

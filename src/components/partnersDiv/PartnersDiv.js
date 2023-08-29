@@ -1,6 +1,6 @@
 import './partnersDiv.css'
 import React, { useState, useRef } from 'react';
-import { MdArrowBackIosNew,MdArrowForwardIos } from 'react-icons/md';
+import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md';
 // Slide Component
 const Slide = ({ slide, current, handleSlideClick }) => {
     const slideRef = useRef(null);
@@ -24,7 +24,7 @@ const Slide = ({ slide, current, handleSlideClick }) => {
 
     const classNames = `slide ${current === slide.index ? 'slide--current' :
         current - 1 === slide.index ? 'slide--previous' :
-        current + 1 === slide.index ? 'slide--next' : ''}`;
+            current + 1 === slide.index ? 'slide--next' : ''}`;
 
     return (
         <li
@@ -56,18 +56,18 @@ const SliderControl = ({ type, title, handleClick }) => {
     return (
         <button className={`btn btn--${type}`} title={title} onClick={handleClick}>
             {
-                type==='next'
-                ?
-                <MdArrowForwardIos className='icon'/>
-                :
-                <MdArrowBackIosNew className='icon'/>
+                type === 'next'
+                    ?
+                    <MdArrowForwardIos className='icon' />
+                    :
+                    <MdArrowBackIosNew className='icon' />
             }
         </button>
     );
 };
 
 // Slider Component
-export const Slider = ({ slides, heading }) => {
+export const Slider = ({ slides, heading, title }) => {
     const [current, setCurrent] = useState(0);
 
     const handlePreviousClick = () => {
@@ -90,20 +90,23 @@ export const Slider = ({ slides, heading }) => {
 
     return (
         <div className='partnersDiv'>
-            <div className='slider'>
-                <ul className="slider__wrapper" style={wrapperTransform}>
-                    <h3 id={`slider-heading__${heading.replace(/\s+/g, '-').toLowerCase()}`} className="visuallyhidden">{heading}</h3>
+            {title ? <h3 className="heading">{title}</h3> : null}
+            <div className='partnerInnerDiv'>
+                <div className='slider'>
+                    <ul className="slider__wrapper" style={wrapperTransform}>
+                        <h3 id={`slider-heading__${heading.replace(/\s+/g, '-').toLowerCase()}`} className="visuallyhidden">{heading}</h3>
 
-                    {slides.map((slide) => (
-                        <Slide
-                            key={slide.index}
-                            slide={slide}
-                            current={current}
-                            handleSlideClick={handleSlideClick}
-                        />
-                    ))}
-                </ul>
+                        {slides.map((slide) => (
+                            <Slide
+                                key={slide.index}
+                                slide={slide}
+                                current={current}
+                                handleSlideClick={handleSlideClick}
+                            />
+                        ))}
+                    </ul>
 
+                </div>
                 <div className="slider__controls">
                     <SliderControl
                         type="previous"
