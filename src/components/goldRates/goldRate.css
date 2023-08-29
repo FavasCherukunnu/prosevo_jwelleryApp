@@ -1,0 +1,30 @@
+.goldRateComponent {}
+
+.goldRateComponent .bottomArrow {
+    transition: all 0.3s;
+    color: black;
+
+    /* position: 'absolute';
+    right: '0';
+    bottom: '0'; */
+
+}
+.goldRateHoverComponent{
+    padding: 10px;
+}
+.goldRateHoverComponent table tr td:first-child{
+    white-space: nowrap;
+    padding-right: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.goldRateHoverComponent table tr td:nth-child(2){
+   padding-right: 10px;
+}
+
+.goldRateHoverComponent table tr td{
+    padding-bottom: 10px;
+
+}
+

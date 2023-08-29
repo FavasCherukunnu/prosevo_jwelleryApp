@@ -1,7 +1,8 @@
 /* ButtonWithHover.css */
 .HoverButton-container {
     position: relative;
-    display: inline-block;
+    display: flex;
+    
 }
 
 .HoverButton-container .hover-button {
