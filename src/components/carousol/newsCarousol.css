@@ -44,15 +44,18 @@
     height: 100%;
     background-color: #fff;
     /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); */
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .carousel1 .carousel-item-text {
     font-size: 1.15rem;
-    margin: 40px 0 40px 0;
+    margin: 40px 0 0px 0;
     padding: 0 20px 0 20px;
     white-space: normal;
+    max-height: 5em;
+    overflow: hidden;
     color: #617d98;
+    
 }
 
 .carousel1 .carousel-img {
