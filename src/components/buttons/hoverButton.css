@@ -56,7 +56,7 @@
     background-color: white;
 }
 
-.HoverButton-container .hiddenDiv {
+.HoverButton-container .hiddenDiv { 
     overflow: hidden;
     border-radius: 12px;
     display: block;
@@ -66,4 +66,9 @@
     top: 105%;
     /* z-index: 1; */
     transition: opacity 0.2s ease-in-out;
+}
+
+.HoverButton-container .pinButton:hover{
+    transition: all 0.1s;
+    transform: scale(1.2);
 }
