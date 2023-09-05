@@ -12,16 +12,22 @@ import { Link } from 'react-router-dom';
 import { GoldenButton } from './buttons/goldenButton';
 import { HoverButton } from './buttons/hoverButton';
 import { HoverComponent } from './goldRates/hoverComponent';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { goldRateApi, goldRateToken } from '../constants/api';
 export function TopNavBar() {
+
+  const [goldRate,setGoldRate] = useState({}) 
+
+  
+
   return (
     <div className='topNavBar'>
       <Navbar fixed='top' className="navBarMain" >
         <Container>
-          {/* <Navbar.Brand href="#home">
-            <GiGoldNuggets size={50} />
-          </Navbar.Brand> */}
+          
           <Nav className="ms-auto">
-            <HoverButton button={<GoldRateComponent />}>
+            <HoverButton isPinnable button={<GoldRateComponent prevRate={goldRate.prev_carrot22} currRate={goldRate.carrot22} />}>
                 <HoverComponent/>
             </HoverButton>
             <div style={{ width: '10px' }}></div>

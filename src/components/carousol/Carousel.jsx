@@ -22,7 +22,7 @@ export const Carousel = (props) => {
             item=> item.description!==null
             )
             // setItems(res.data.results)
-            console.log(item);
+            // console.log(item);
             setItems(item)
           setIsLoaded(true);
         }catch(err){

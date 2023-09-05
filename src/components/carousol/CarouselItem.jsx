@@ -1,7 +1,7 @@
 import React from "react";
 import './newsCarousol.css'
 export const CarouselItem = ({ item, width, isSelected }) => {
-  console.log(item);
+  // console.log(item);
   return (
     <div className="carousel-item1" style={{ width: width, opacity: isSelected ? 1 : 0,zIndex: isSelected ? 0 : -1 }}>
       {/* <div></div> */}
