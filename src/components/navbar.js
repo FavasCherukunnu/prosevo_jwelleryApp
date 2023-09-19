@@ -12,18 +12,35 @@ import { Link } from 'react-router-dom';
 import { GoldenButton } from './buttons/goldenButton';
 import { HoverButton } from './buttons/hoverButton';
 import { HoverComponent } from './goldRates/hoverComponent';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
-import { goldRateApi, goldRateToken } from '../constants/api';
+import { useSelector } from 'react-redux';
 export function TopNavBar() {
 
   const [goldRate,setGoldRate] = useState({}) 
+  const topNavRef = useRef();
+  const topNav  = useSelector(
+    (state)=>state.homeTopNav.value
+  )
+  const isNavShadowOn = topNav.showShadow;
 
+  useEffect(
+    ()=>{
+      
+      const handleTopNavShadow= ()=>{
+        const ref = topNavRef.current.style;
+        ref.boxShadow = isNavShadowOn===true?'rgba(0, 0, 0, 0.1) 0px 0px 12px 0px, rgba(0, 0, 0, 0.1) 0px 0px 4px 0px':''
+      }
+
+      handleTopNavShadow();
+
+    },[isNavShadowOn]
+  );
   
 
   return (
-    <div className='topNavBar'>
-      <Navbar fixed='top' className="navBarMain" >
+    <div className='topNavBar' ref={topNavRef}>
+      <Navbar className="navBarMain" >
         <Container>
           
           <Nav className="ms-auto">

@@ -1,11 +1,18 @@
 
+.topNavBar{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: white;
+    transition: all 0.7s;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 12px 0px, rgba(0, 0, 0, 0.1) 0px 0px 4px 0px */
+}
 .topNavBar img{
     height: 40px;
     border-radius: 50px;
 }
 .topNavBar .navBarMain{
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 19px 20px -26px;
-    background-color: #fffffc;
+    /* background-color: #fffffc; */
 }
 
 .topNavBar .brandName{
